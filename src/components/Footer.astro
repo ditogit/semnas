@@ -1,0 +1,34 @@
+---
+import { site } from '../data/site.js';
+---
+<footer class="bg-[#0B1F3A] text-slate-300">
+  <div class="mx-auto grid max-w-6xl gap-8 px-5 py-12 md:grid-cols-4">
+    <div>
+      <p class="font-bold text-white">SemNas AI &amp; Data</p>
+      <p class="mt-2 text-sm leading-relaxed">{site.edition} tentang Kecerdasan Buatan, Blockchain, Komputasi Awan, dan Analisis Data.</p>
+      <p class="mt-3 text-sm">{site.email}<br />{site.phone}</p>
+    </div>
+    <div>
+      <p class="font-semibold text-white">Navigasi</p>
+      <ul class="mt-2 space-y-1 text-sm">
+        <li><a class="hover:text-white" href="#about">Tentang</a></li>
+        <li><a class="hover:text-white" href="#topics">Topik</a></li>
+        <li><a class="hover:text-white" href="#schedule">Jadwal</a></li>
+        <li><a class="hover:text-white" href="#registration">Registrasi</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-semibold text-white">Penulis</p>
+      <ul class="mt-2 space-y-1 text-sm">
+        <li><a class="hover:text-white" href="#call-for-paper">Call for Paper</a></li>
+        <li><a class="hover:text-white" href="#registration">Biaya</a></li>
+        <li><a class="hover:text-white" href="#venue">Venue</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-semibold text-white">Pelaksanaan</p>
+      <p class="mt-2 text-sm">{site.dates}<br />{site.city}<br />{site.venueShort}</p>
+    </div>
+  </div>
+  <div class="border-t border-white/10 py-4 text-center text-xs">© 2026 {site.name}. Offline-ready PWA.</div>
+</footer>

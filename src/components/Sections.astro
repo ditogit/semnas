@@ -1,0 +1,222 @@
+---
+import { tracks } from '../data/tracks.js';
+import { speakers } from '../data/speakers.js';
+import { importantDates } from '../data/dates.js';
+import { pricing } from '../data/pricing.js';
+import { scheduleDay1, scheduleDay2 } from '../data/schedule.js';
+import { committee, partners, stats, faqs } from '../data/content.js';
+import { links, site } from '../data/site.js';
+---
+
+<section id="about" class="mx-auto max-w-6xl px-5 py-12">
+  <p class="text-[11px] font-bold uppercase tracking-widest text-[#155EEF]">About The Seminar</p>
+  <h2 class="mt-1 text-2xl font-bold text-[#0B1F3A] md:text-4xl">Connecting Research, Ideas, and Real-World Impact</h2>
+  <div class="mt-4 space-y-4 leading-relaxed text-slate-600">
+    <p>Seminar Nasional ke-2 tentang Kecerdasan Buatan, Blockchain, Komputasi Awan, dan Analisis Data (SemNas AI &amp; Data 2026) diselenggarakan sebagai respons strategis terhadap akselerasi revolusi komputasi cerdas dan urgensi kedaulatan data nasional.</p>
+    <p>Tahun ini, tema sentral <strong class="text-[#0B1F3A]">“{site.theme}”</strong> menekankan peran inovasi algoritmik dalam optimasi jaringan kelistrikan, mitigasi dampak perubahan iklim, serta ketahanan sistem transaksi keuangan terdesentralisasi.</p>
+    <p>Seluruh naskah lolos peer-review ketat (double-blind) dipresentasikan oral dan diterbitkan dalam prosiding bereputasi, peluang indeksasi SINTA 2 serta prosiding mitra internasional.</p>
+  </div>
+</section>
+
+<section id="topics" class="mx-auto max-w-6xl px-5 py-12">
+  <div class="text-center">
+    <p class="text-[11px] font-bold uppercase tracking-widest text-[#155EEF]">Scope of Conference</p>
+    <h2 class="mt-1 text-2xl font-bold md:text-4xl">Research Topics</h2>
+  </div>
+  <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+    {tracks.map((t) => (
+      <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <span aria-hidden="true" class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-2xl">{t.icon}</span>
+        <h3 class="mt-3 font-bold text-[#0B1F3A]">{t.title}</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-600">{t.desc}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<section id="speakers" class="mx-auto max-w-6xl px-5 py-12">
+  <p class="text-[11px] font-bold uppercase tracking-widest text-[#155EEF]">Academic Leaders</p>
+  <h2 class="mt-1 text-2xl font-bold md:text-4xl">Meet Our Speakers</h2>
+  <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    {speakers.map((s) => (
+      <article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <img src={s.image} alt={`Foto ${s.name}`} loading="lazy" class="aspect-square w-full object-cover" />
+        <div class="p-4">
+          <h3 class="mt-2 font-bold">{s.name}</h3>
+          <p class="text-sm font-medium text-[#155EEF]">{s.affiliation}</p>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<section class="mx-auto max-w-6xl px-5 py-12">
+  <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-10">
+    <p class="inline-block rounded-full bg-amber-100 px-3 py-1 text-[11px] font-bold uppercase text-amber-900">Milestone Deadlines</p>
+    <h2 class="mt-2 text-2xl font-bold md:text-4xl">Important Dates</h2>
+    <div class="mt-6 grid gap-3 md:grid-cols-5">
+      {importantDates.map((d) => (
+        <div class={`rounded-2xl p-4 ${d.highlight ? 'bg-amber-50' : 'bg-slate-100'}`}>
+          <p class="text-[11px] font-bold uppercase text-slate-500">{d.phase}</p>
+          <p class="mt-2 text-xl font-extrabold">{d.date}</p>
+          <p class="mt-1 font-bold">{d.title}</p>
+          <p class="mt-1 text-sm text-slate-600">{d.desc}</p>
+          <p class="mt-2 text-[11px] font-bold uppercase text-amber-900">{d.status}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section id="call-for-paper" class="mx-auto max-w-6xl px-5 py-12">
+  <div class="rounded-3xl bg-[#0B1F3A] p-6 text-white shadow-xl md:p-10">
+    <p class="inline-block rounded-full bg-white/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest">Author Submission Portal</p>
+    <h2 class="mt-2 text-2xl font-bold md:text-4xl">Share Your Research With the Community</h2>
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a href={links.submitPaper} target="_blank" rel="noopener" class="rounded-lg bg-[#155EEF] px-6 py-3 text-sm font-semibold text-white">Submit Your Paper Now</a>
+      <a href={links.templateDocx} target="_blank" rel="noopener" class="rounded-lg bg-white/10 px-6 py-3 text-sm font-semibold">Download Template</a>
+      <a href={links.guidelines} target="_blank" rel="noopener" class="px-2 py-3 text-sm font-semibold text-blue-200 hover:underline">Read Author Guidelines</a>
+    </div>
+  </div>
+</section>
+
+<section id="registration" class="mx-auto max-w-6xl px-5 py-12">
+  <div class="text-center">
+    <p class="text-[11px] font-bold uppercase tracking-widest text-[#155EEF]">Participation Fees</p>
+    <h2 class="mt-1 text-2xl font-bold md:text-4xl">Conference Registration</h2>
+    <p class="mx-auto mt-2 max-w-2xl text-sm text-slate-600">Registration is required for publication in proceedings. At least one author must register at the full (non-student) rate.</p>
+  </div>
+  <div class="mt-6 flex justify-center gap-2">
+    <button type="button" data-mode="onsite" class="mode-btn rounded-lg bg-[#0B1F3A] px-5 py-2 text-sm font-semibold text-white">On-Site (Yogyakarta)</button>
+    <button type="button" data-mode="online" class="mode-btn rounded-lg bg-slate-200 px-5 py-2 text-sm font-semibold text-slate-700">Online</button>
+  </div>
+  <div id="pricing-onsite" class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+    {pricing.onsite.map((p) => (
+      <article class={`relative flex flex-col rounded-2xl border bg-white p-6 shadow-sm ${p.featured ? 'border-[#155EEF] shadow-lg' : 'border-slate-200'}`}>
+        {p.featured && <span class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#155EEF] px-3 py-1 text-[11px] font-bold uppercase text-white">Recommended</span>}
+        <p class="text-[11px] uppercase tracking-wider text-slate-500">{p.category}</p>
+        <h3 class="mt-1 text-xl font-bold">{p.name}</h3>
+        <p class="my-4"><span class="text-2xl font-extrabold">{p.price}</span> <span class="text-sm text-slate-500">{p.usd}</span></p>
+        <p class="text-sm text-slate-600">{p.desc}</p>
+        <a href={p.link} target="_blank" rel="noopener" class={`mt-6 rounded-lg py-2.5 text-center text-sm font-semibold ${p.featured ? 'bg-[#155EEF] text-white' : 'bg-slate-100 text-[#0B1F3A] hover:bg-[#155EEF] hover:text-white'}`}>{p.cta}</a>
+      </article>
+    ))}
+  </div>
+  <div id="pricing-online" class="mt-8 hidden grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+    {pricing.online.map((p) => (
+      <article class={`relative flex flex-col rounded-2xl border bg-white p-6 shadow-sm ${p.featured ? 'border-[#155EEF] shadow-lg' : 'border-slate-200'}`}>
+        {p.featured && <span class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#155EEF] px-3 py-1 text-[11px] font-bold uppercase text-white">Recommended</span>}
+        <p class="text-[11px] uppercase tracking-wider text-slate-500">{p.category}</p>
+        <h3 class="mt-1 text-xl font-bold">{p.name}</h3>
+        <p class="my-4"><span class="text-2xl font-extrabold">{p.price}</span> <span class="text-sm text-slate-500">{p.usd}</span></p>
+        <p class="text-sm text-slate-600">{p.desc}</p>
+        <a href={p.link} target="_blank" rel="noopener" class={`mt-6 rounded-lg py-2.5 text-center text-sm font-semibold ${p.featured ? 'bg-[#155EEF] text-white' : 'bg-slate-100 text-[#0B1F3A] hover:bg-[#155EEF] hover:text-white'}`}>{p.cta}</a>
+      </article>
+    ))}
+  </div>
+  <script>
+    const modeBtns = document.querySelectorAll('.mode-btn');
+    const onsite = document.getElementById('pricing-onsite');
+    const online = document.getElementById('pricing-online');
+    modeBtns.forEach((b) => {
+      b.addEventListener('click', () => {
+        const showOnsite = b.getAttribute('data-mode') === 'onsite';
+        onsite.classList.toggle('hidden', !showOnsite);
+        online.classList.toggle('hidden', showOnsite);
+        modeBtns.forEach((x) => {
+          const active = x === b;
+          x.className = 'mode-btn rounded-lg px-5 py-2 text-sm font-semibold ' + (active ? 'bg-[#0B1F3A] text-white' : 'bg-slate-200 text-slate-700');
+        });
+      });
+    });
+  </script>
+</section>
+
+<section id="schedule" class="mx-auto max-w-6xl px-5 py-12">
+  <h2 class="text-2xl font-bold md:text-4xl">Conference Schedule</h2>
+  <div class="mt-4 flex gap-2" id="schedule-tabs">
+    <button type="button" data-day="1" class="tab-btn rounded-lg bg-[#0B1F3A] px-5 py-2 text-sm font-semibold text-white">Day 1: 01 Des</button>
+    <button type="button" data-day="2" class="tab-btn rounded-lg bg-slate-200 px-5 py-2 text-sm font-semibold text-slate-700">Day 2: 02 Des</button>
+  </div>
+  <div id="schedule-day1" class="mt-4 flex flex-col gap-2">
+    {scheduleDay1.map((s) => (
+      <div class="flex flex-col justify-between gap-2 rounded-xl border border-slate-200 bg-white p-4 shadow-sm md:flex-row md:items-center">
+        <div><p class="inline-block rounded-lg bg-slate-100 px-3 py-1 text-sm font-bold">{s.time}</p>
+        <h4 class="mt-1 font-bold">{s.title}</h4><p class="text-sm text-slate-500">{s.desc}</p></div>
+        <span class="w-fit rounded-full bg-blue-50 px-3 py-1 text-[11px] font-bold uppercase text-[#155EEF]">{s.badge}</span>
+      </div>
+    ))}
+  </div>
+  <div id="schedule-day2" class="mt-4 hidden flex-col gap-2">
+    {scheduleDay2.map((s) => (
+      <div class="flex flex-col justify-between gap-2 rounded-xl border border-slate-200 bg-white p-4 shadow-sm md:flex-row md:items-center">
+        <div><p class="inline-block rounded-lg bg-slate-100 px-3 py-1 text-sm font-bold">{s.time}</p>
+        <h4 class="mt-1 font-bold">{s.title}</h4><p class="text-sm text-slate-500">{s.desc}</p></div>
+        <span class="w-fit rounded-full bg-cyan-50 px-3 py-1 text-[11px] font-bold uppercase text-cyan-800">{s.badge}</span>
+      </div>
+    ))}
+  </div>
+  <script>
+    const btns = document.querySelectorAll('.tab-btn');
+    const d1 = document.getElementById('schedule-day1');
+    const d2 = document.getElementById('schedule-day2');
+    btns.forEach((b) => {
+      b.addEventListener('click', () => {
+        const day = b.getAttribute('data-day');
+        const showFirst = day === '1';
+        d1.classList.toggle('hidden', !showFirst);
+        d1.classList.toggle('flex', showFirst);
+        d2.classList.toggle('hidden', showFirst);
+        d2.classList.toggle('flex', !showFirst);
+        btns.forEach((x) => {
+          const active = x === b;
+          x.className = 'tab-btn rounded-lg px-5 py-2 text-sm font-semibold ' + (active ? 'bg-[#0B1F3A] text-white' : 'bg-slate-200 text-slate-700');
+        });
+      });
+    });
+  </script>
+</section>
+
+<section class="mx-auto max-w-6xl px-5 py-12">
+  <h2 class="text-2xl font-bold md:text-4xl">Organizing Committee</h2>
+  <div class="mt-6 grid gap-4 md:grid-cols-3">
+    {committee.map((c) => (
+      <div class="rounded-2xl bg-slate-100 p-5">
+        <p class="text-[11px] font-bold uppercase text-[#155EEF]">{c.group}</p>
+        <h4 class="font-bold">{c.title}</h4>
+        <ul class="mt-2 space-y-1.5 text-sm text-slate-600">{c.members.map((m) => <li>• {m}</li>)}</ul>
+      </div>
+    ))}
+  </div>
+</section>
+
+<section id="venue" class="mx-auto max-w-6xl px-5 py-12">
+  <div class="grid items-center gap-8 lg:grid-cols-2">
+    <div>
+      <h2 class="text-2xl font-bold md:text-4xl">{site.venueShort} Ballroom, Yogyakarta</h2>
+      <p class="mt-2 max-w-3xl text-slate-600">Pusat budaya dan pendidikan Yogyakarta, fasilitas konvensi kelas dunia dengan kapabilitas hybrid.</p>
+      <a href={links.maps} target="_blank" rel="noopener" class="mt-4 inline-block rounded-lg bg-white px-5 py-2.5 text-sm font-semibold shadow hover:bg-slate-100">📍 Open in Google Maps</a>
+    </div>
+    <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <iframe
+        title="Peta lokasi {site.venueShort}"
+        src={links.mapsEmbed}
+        class="h-72 w-full border-0 md:h-96"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<!--<section class="mx-auto max-w-6xl px-5 py-12">
+  <div class="rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-sm md:p-10">
+    <h2 class="font-bold">Partners &amp; Scientific Endorsers</h2>
+    <div class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+      {partners.map((p) => (
+        <div class="rounded-xl bg-slate-100 p-4"><p class="font-extrabold">{p.name}</p><p class="text-[11px] uppercase text-slate-500">{p.desc}</p></div>
+      ))}
+    </div>
+  </div>
+</section>-->
