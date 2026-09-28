@@ -5,6 +5,7 @@ const {
   title = 'SemNas AI & Data 2026',
   description = 'Seminar Nasional ke-2 tentang Kecerdasan Buatan, Blockchain, Komputasi Awan, dan Analisis Data.'
 } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 <!doctype html>
 <html lang="id">
@@ -14,8 +15,8 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0B1F3A" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="apple-touch-icon" href={`${base}icons/icon-192.png`} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,7 +30,7 @@ const {
       import { Workbox } from 'workbox-window';
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          const wb = new Workbox('/sw.js');
+          const wb = new Workbox(`${import.meta.env.BASE_URL}sw.js`);
           wb.register();
         });
       }

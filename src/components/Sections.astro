@@ -40,7 +40,7 @@ import { links, site } from '../data/site.js';
   <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
     {speakers.map((s) => (
       <article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-        <img src={s.image} alt={`Foto ${s.name}`} loading="lazy" class="aspect-square w-full object-cover" />
+        <img src={`${import.meta.env.BASE_URL}${s.image.replace(/^\//, '')}`} alt={`Foto ${s.name}`} loading="lazy" class="aspect-square w-full object-cover" />
         <div class="p-4">
           <h3 class="mt-2 font-bold">{s.name}</h3>
           <p class="text-sm font-medium text-[#155EEF]">{s.affiliation}</p>
